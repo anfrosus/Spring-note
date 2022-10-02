@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 @RequiredArgsConstructor
@@ -24,11 +24,12 @@ public class MemberService {
     }
 
     @Transactional
-    public Long update(Long id, MemberRequestDto memberRequestDto) throws Throwable {
-        Optional<MemberEntity> member1 = memberRepository.findById(id);
-        member1.get();
-
-        return
+    public Long update(Long id, MemberRequestDto memberRequestDto) {
+        MemberEntity member1 = memberRepository.findById(id).orElseThrow(
+                ()-> new IllegalArgumentException("해당 아이디가 존재하지 않습니다.")
+        );
+        member1.update(memberRequestDto);
+        return member1.getId();
     }
 
     @Transactional

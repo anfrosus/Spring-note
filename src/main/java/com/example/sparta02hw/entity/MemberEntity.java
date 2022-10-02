@@ -1,5 +1,6 @@
 package com.example.sparta02hw.entity;
 
+import com.example.sparta02hw.dto.MemberRequestDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,5 +30,10 @@ public class MemberEntity {
         this.userName = userName;
     }
 
-    public Long
+    public void update (MemberRequestDto memberRequestDto){
+        this.userId = memberRequestDto.getUserId();
+        this.userName = memberRequestDto.getUserName();
+        this.passWord = memberRequestDto.getPassWord();
+    }
+
 }
