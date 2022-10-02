@@ -30,6 +30,12 @@ public class MemberEntity {
         this.userName = userName;
     }
 
+    public MemberEntity(MemberRequestDto memberRequestDto){
+        this.userId = memberRequestDto.getUserId();
+        this.passWord = memberRequestDto.getPassWord();
+        this.userName = memberRequestDto.getUserName();
+    }
+
     public void update (MemberRequestDto memberRequestDto){
         this.userId = memberRequestDto.getUserId();
         this.userName = memberRequestDto.getUserName();

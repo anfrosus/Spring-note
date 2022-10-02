@@ -19,7 +19,7 @@ public class MemberService {
 
     @Transactional
     public Long create(MemberRequestDto memberRequestDto){
-        memberRepository.save(new MemberEntity(memberRequestDto.getUserId(), memberRequestDto.getPassWord(), memberRequestDto.getUserName()));
+        memberRepository.save(new MemberEntity(memberRequestDto));
         return memberRepository.count();
     }
 
